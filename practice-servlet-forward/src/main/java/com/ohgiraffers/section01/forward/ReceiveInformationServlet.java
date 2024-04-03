@@ -9,21 +9,19 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/forward")
-public class RaceiveInformationServlet extends HttpServlet {
+@WebServlet("/journal")
+public class ReceiveInformationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String userId = request.getParameter("userId");
-        String password = request.getParameter("password");
+        String diary = request.getParameter("diary");
 
-        System.out.println("userId = " + userId );
-        System.out.println("password = " + password);
+        System.out.println("diary = " + diary);
 
-        request.setAttribute("userId", userId);
+        request.setAttribute("diary", diary);
 
         RequestDispatcher rd = request.getRequestDispatcher("/print");
-        rd.forward(request, response); //forward는 request,response를 같이 넘겨야함
+        rd.forward(request, response);
     }
 }
